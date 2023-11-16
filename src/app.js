@@ -10,11 +10,7 @@ import './assets/img/spades.svg';
 const cards = ['./spades.svg', './hearts.svg', './diamond.svg', './spades.svg'];
 
 const cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
-
-const cardNumber = document.querySelector('.card-number');
 const cardContainer = document.querySelector('.card-container');
-const topImage = document.querySelector('.top-img');
-const bottomImage = document.querySelector('.bottom-img');
 const changeCardButton = document.querySelector('.change-card');
 const widthInput = document.querySelector('#width');
 const heightInput = document.querySelector('#height');
@@ -24,9 +20,14 @@ const generateRandomElement = (array) => {
 };
 
 const generateRandomCards = () => {
+  const topImage = document.querySelector('.top-img');
+  const bottomImage = document.querySelector('.bottom-img');
+
   topImage.src = generateRandomElement(cards);
   bottomImage.src = topImage.src;
-  cardNumber.innerHTML = generateRandomElement(cardNumbers);
+  document.querySelector('.card-number').innerHTML = generateRandomElement(
+    cardNumbers
+  );
 };
 
 const changeWidth = (e) => {
